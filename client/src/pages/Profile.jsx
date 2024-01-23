@@ -192,7 +192,7 @@ export default function Profile() {
         </p>
         <input
           type='text'
-          placeholder='username'
+          placeholder='Username'
           defaultValue={currentUser.username}
           id='username'
           className='border p-3 rounded-lg'
@@ -200,7 +200,7 @@ export default function Profile() {
         />
         <input
           type='email'
-          placeholder='email'
+          placeholder='Email'
           id='email'
           defaultValue={currentUser.email}
           className='border p-3 rounded-lg'
@@ -208,7 +208,7 @@ export default function Profile() {
         />
         <input
           type='password'
-          placeholder='password'
+          placeholder='Password'
           onChange={handleChange}
           id='password'
           className='border p-3 rounded-lg'
