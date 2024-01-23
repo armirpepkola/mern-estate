@@ -5,6 +5,7 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
+import path from 'path';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -18,6 +19,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+  const __dirname = path.resolve();
 
 // Create an Express application
 const app = express();
@@ -37,6 +40,12 @@ app.listen(3000, () => {
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing', listingRouter);
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+})
 
 // Error handling middleware to handle any errors that occur during the request
 app.use((err, req, res, next) => {
