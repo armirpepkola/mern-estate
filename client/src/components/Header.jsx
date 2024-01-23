@@ -13,7 +13,7 @@ export default function Header() {
           </h1>
         </Link>
 
-        <ul className='flex gap-4'>
+        <ul className='flex gap-4 items-center'>
           <li className='text-white transition duration-300 hover:text-slate-200'>
             <Link to='/search'>Properties</Link>
           </li>

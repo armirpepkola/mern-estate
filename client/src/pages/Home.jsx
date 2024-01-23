@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?offer=true&limit=4');
+        const res = await fetch('/api/listing/get?offer=true&limit=3');
         const data = await res.json();
         setOfferListings(data);
         fetchRentListings();
@@ -27,7 +27,7 @@ export default function Home() {
 
     const fetchRentListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=rent&limit=4');
+        const res = await fetch('/api/listing/get?type=rent&limit=3');
         const data = await res.json();
         setRentListings(data);
         fetchSaleListings();
@@ -38,7 +38,7 @@ export default function Home() {
 
     const fetchSaleListings = async () => {
       try {
-        const res = await fetch('/api/listing/get?type=sale&limit=4');
+        const res = await fetch('/api/listing/get?type=sale&limit=3');
         const data = await res.json();
         setSaleListings(data);
       } catch (error) {
@@ -103,7 +103,7 @@ export default function Home() {
           <div className=''>
             <div className='my-3'>
               <h2 className='text-3xl font-semibold text-teal-500 mb-2'>Featured Offers</h2>
-              <Link className='text-sm text-blue-800 hover:underline inline-block transition duration-300 ease-in-out transform hover:scale-105' to={'/search?type=sale'}>
+              <Link className='text-sm text-blue-800 hover:underline inline-block transition duration-300 ease-in-out transform hover:scale-105' to={'/search?offer=true'}>
                 Explore more offers
               </Link>
             </div>
@@ -118,7 +118,7 @@ export default function Home() {
           <div className=''>
             <div className='my-3'>
               <h2 className='text-3xl font-semibold text-teal-500 mb-2'>Places Available for Rent</h2>
-              <Link className='text-sm text-blue-800 hover:underline inline-block transition duration-300 ease-in-out transform hover:scale-105' to={'/search?type=sale'}>
+              <Link className='text-sm text-blue-800 hover:underline inline-block transition duration-300 ease-in-out transform hover:scale-105' to={'/search?type=rent'}>
                 Explore more places for rent
               </Link>
             </div>
