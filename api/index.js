@@ -5,8 +5,11 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import listingRouter from './routes/listing.route.js';
 import cookieParser from 'cookie-parser';
+
+// Load environment variables from .env file
 dotenv.config();
 
+// Connect to MongoDB using the provided connection string
 mongoose
   .connect(process.env.MONGO)
   .then(() => {
@@ -16,23 +19,32 @@ mongoose
     console.log(err);
   });
 
+// Create an Express application
 const app = express();
 
+// Middleware to parse JSON in request bodies
 app.use(express.json());
 
+// Middleware to parse cookies in the request
 app.use(cookieParser());
 
+// Start the server and listen on port 3000
 app.listen(3000, () => {
   console.log('Server is running on port 3000!');
 });
 
+// Define routes for different parts of the API
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing', listingRouter);
 
+// Error handling middleware to handle any errors that occur during the request
 app.use((err, req, res, next) => {
+  // Set the status code and message for the error response
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
+
+  // Send a JSON response with the error details
   return res.status(statusCode).json({
     success: false,
     statusCode,
