@@ -128,7 +128,7 @@ export default function Search() {
         setListings([...listings, ...data]);
     };
     return (
-        <div className='flex flex-col md:flex-row'>
+        <div className='flex flex-col md:flex-row bg-teal-50'>
         <div className='p-7  border-b-2 md:border-r-2 md:min-h-screen'>
             <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
             <div className='flex items-center gap-2'>
@@ -224,7 +224,7 @@ export default function Search() {
                 <option value='createdAt_asc'>Oldest</option>
                 </select>
             </div>
-            <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95'>
+            <button className='bg-teal-500 text-white p-3 rounded-lg uppercase hover:opacity-95'>
                 Search
             </button>
             </form>

@@ -374,7 +374,7 @@ export default function CreateListing() {
                 ))}
             <button
                 disabled={loading || uploading}
-                className='p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
+                className='p-3 bg-teal-500 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80'
             >
                 {loading ? 'Updating...' : 'Update listing'}
             </button>
